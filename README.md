@@ -112,7 +112,7 @@ Future versions will notify users automatically
 
 Semantic versioning is used (vMAJOR.MINOR.PATCH)
 
-
+---
 
 🐛 Bug Reports & Feature Requests
 
@@ -139,3 +139,4 @@ Project: https://github.com/Bittukrazad/smart-file-organizer
 
 Copyright © 2025 Bittu Kumar Azad
 All rights reserved.
+
