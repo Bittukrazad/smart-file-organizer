@@ -4,10 +4,26 @@
 
 Intelligent automated file management system
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-Proprietary-red)
-![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
-
+<p align="center">
+  <a href="https://github.com/Bittukrazad/smart-file-organizer/releases">
+    <img src="https://img.shields.io/github/v/release/Bittukrazad/smart-file-organizer?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/Bittukrazad/smart-file-organizer/releases">
+    <img src="https://img.shields.io/github/downloads/Bittukrazad/smart-file-organizer/total?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/Bittukrazad/smart-file-organizer/stargazers">
+    <img src="https://img.shields.io/github/stars/Bittukrazad/smart-file-organizer?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/Bittukrazad/smart-file-organizer/issues">
+    <img src="https://img.shields.io/github/issues/Bittukrazad/smart-file-organizer?style=for-the-badge" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/Bittukrazad/smart-file-organizer?style=for-the-badge" />
+  </a>
+  <a href="https://www.microsoft.com/windows">
+    <img src="https://img.shields.io/badge/platform-Windows-blue?style=for-the-badge" />
+  </a>
+</p>
 
 
 
@@ -139,4 +155,5 @@ Project: https://github.com/Bittukrazad/smart-file-organizer
 
 Copyright © 2025 Bittu Kumar Azad
 All rights reserved.
+
 
