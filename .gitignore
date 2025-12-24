@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+*.bak
+
+# App specific - User data
+logs/
+*.log
+logs_*.txt
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# App specific - Runtime data
+config.json
+organization_rules.json
+analytics_*.json
+file_organizer_data_*.json
+update_cache.json
+
+# Release files (don't upload binaries to source)
+release/
+*.exe
+*.msi
+*.zip
+*.7z
+
+# Temporary files
+*.tmp
+~*
+.~*

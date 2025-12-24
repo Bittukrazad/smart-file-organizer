@@ -1,0 +1,81 @@
+# Core Dependencies
+watchdog>=3.0.0              # File system monitoring
+pydantic>=2.5.0              # Data validation and settings management
+PyQt6>=6.6.0                 # Modern GUI framework
+
+# Data Processing
+polars>=0.20.0               # Fast DataFrame library for logging
+pandas>=2.1.0                # Alternative data processing (if needed)
+
+# API and Network
+requests>=2.31.0             # HTTP library for API calls
+tenacity>=8.2.3              # Retry logic for network operations
+
+# Google Drive Integration
+google-api-python-client>=2.108.0  # Google Drive API
+google-auth-httplib2>=0.2.0        # Google Auth HTTP
+google-auth-oauthlib>=1.2.0        # OAuth2 for Google APIs
+google-auth>=2.25.0                # Google authentication
+
+# Machine Learning (for AI classification)
+scikit-learn>=1.3.0          # ML algorithms
+joblib>=1.3.0                # Model serialization
+numpy>=1.24.0                # Numerical computing
+
+# CLI and Output
+typer>=0.9.0                 # CLI framework
+rich>=13.7.0                 # Rich terminal output
+click>=8.1.7                 # Command line interface creation
+
+# File Handling
+Pillow>=10.1.0               # Image processing
+python-magic>=0.4.27         # File type detection
+filetype>=1.2.0              # File type identification
+
+# PDF Processing
+PyPDF2>=3.0.0                # PDF file handling
+pdfplumber>=0.10.0           # Extract text from PDFs
+
+# Utilities
+python-dateutil>=2.8.2       # Date utilities
+pathlib>=1.0.1               # Path handling (usually built-in)
+colorama>=0.4.6              # Colored terminal output
+
+# Async Support
+aiofiles>=23.2.1             # Async file operations
+asyncio>=3.4.3               # Async I/O support
+
+# Configuration
+python-dotenv>=1.0.0         # Environment variable management
+toml>=0.10.2                 # TOML configuration files
+PyYAML>=6.0.1                # YAML configuration support
+
+# Testing (Optional but recommended)
+pytest>=7.4.3                # Testing framework
+pytest-cov>=4.1.0            # Coverage reports
+pytest-mock>=3.12.0          # Mocking for tests
+
+# Code Quality (Optional but recommended)
+black>=23.12.0               # Code formatter
+flake8>=6.1.0                # Linting
+mypy>=1.7.0                  # Type checking
+isort>=5.13.0                # Import sorting
+
+# ADVANCED FEATURES ( Recommended)
+
+# Content Analysis
+pytesseract>=0.3.10          # OCR functionality
+Pillow>=10.2.0               # Image processing and EXIF
+PyPDF2>=3.0.1                # PDF metadata and text extraction
+python-docx>=1.1.0           # Word document analysis
+mutagen>=1.47.0              # Audio file metadata (ID3 tags)
+
+# Visual Analytics
+matplotlib>=3.8.2            # Charts and graphs
+
+# File Type Detection
+filetype>=1.2.0              # Accurate file detection
+
+#dependencies for building
+packaging>=23.0
+pyinstaller>=5.13.0
