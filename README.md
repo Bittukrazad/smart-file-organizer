@@ -18,8 +18,8 @@ Intelligent automated file management system
     <img src="https://img.shields.io/github/issues/Bittukrazad/smart-file-organizer?style=for-the-badge" />
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/Bittukrazad/smart-file-organizer?style=for-the-badge" />
-  </a>
+  <img src="https://img.shields.io/github/license/Bittukrazad/smart-file-organizer?style=for-the-badge" />
+</a>
   <a href="https://www.microsoft.com/windows">
     <img src="https://img.shields.io/badge/platform-Windows-blue?style=for-the-badge" />
   </a>
@@ -155,5 +155,6 @@ Project: https://github.com/Bittukrazad/smart-file-organizer
 
 Copyright © 2025 Bittu Kumar Azad
 All rights reserved.
+This project is licensed under the MIT License.
 
 
