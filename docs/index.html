@@ -1,202 +1,903 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart File Organizer Pro</title>
-  <meta name="description" content="Smart File Organizer Pro – Intelligent Windows application to automatically organize files with analytics, monitoring, and smart rules." />
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/icon.ico" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --primary: #6366f1;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --muted: #94a3b8;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(180deg, #020617, #020617);
-      color: var(--light);
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 80px 20px;
-      text-align: center;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-
-    header p {
-      color: var(--muted);
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .buttons {
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      margin: 10px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #4f46e5;
-    }
-
-    .btn-outline {
-      border: 1px solid var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      padding: 25px;
-      border-radius: 14px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .download-box {
-      text-align: center;
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 18px;
-      padding: 50px 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid #1e293b;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart File Organizer Pro - Intelligent automated file management system for Windows. Organize your files effortlessly with AI-powered classification.">
+    <meta name="keywords" content="file organizer, file management, windows app, organize files, automatic organization">
+    <title>Smart File Organizer Pro - Intelligent File Management for Windows</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0078d7;
+            --primary-hover: #1084e0;
+            --secondary-color: #7fba00;
+            --dark-bg: #1a1a1a;
+            --light-bg: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --gray: #6c6c6c;
+            --light-gray: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+        
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0078d7 0%, #00a2e8 100%);
+            color: var(--text-light);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: var(--text-light);
+            color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        /* Screenshots Section - New Professional Design */
+        .screenshots {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+        
+        .features-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .showcase-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .showcase-item.reverse {
+            direction: rtl;
+        }
+        
+        .showcase-item.reverse > * {
+            direction: ltr;
+        }
+        
+        .showcase-preview {
+            background: var(--light-bg);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .showcase-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+        }
+        
+        .browser-bar {
+            background: #f5f5f5;
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .browser-dots {
+            display: flex;
+            gap: 0.4rem;
+        }
+        
+        .browser-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+        
+        .browser-dots span:nth-child(1) { background: #ff5f56; }
+        .browser-dots span:nth-child(2) { background: #ffbd2e; }
+        .browser-dots span:nth-child(3) { background: #27c93f; }
+        
+        .browser-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .preview-content {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+        
+        .preview-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .preview-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .preview-content p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .showcase-details {
+            padding: 2rem;
+        }
+        
+        .showcase-details h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .showcase-details ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .showcase-details li {
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            color: var(--gray);
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .showcase-details li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Download Section */
+        .download {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .download-card {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .file-info {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        
+        .info-item {
+            text-align: center;
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .system-requirements {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+        
+        .system-requirements h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .system-requirements ul {
+            list-style: none;
+        }
+        
+        .system-requirements li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .system-requirements li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            padding: 0.3rem 0;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--text-light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .file-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .showcase-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .showcase-item.reverse {
+                direction: ltr;
+            }
+            
+            .showcase-details {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="C:\SMART_FOLDER_AUTOMATION\app\resources\icon.png" alt="Smart File Organizer Pro Logo" class="logo-image">
+                <span class="logo-text">Smart File Organizer Pro</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="https://github.com/Bittukrazad/smart-file-organizer" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<header>
-  <h1>Smart File Organizer Pro</h1>
-  <p>Automatically organize your files with intelligent rules, real-time monitoring, analytics, and a modern Windows experience.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🗂️ Smart File Organizer Pro</h1>
+            <p class="subtitle">Intelligent automated file management system for Windows</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Bittukrazad/smart-file-organizer/releases/download/v1.0.0/SmartFileOrganizer_Setup_v1.0.0.exe" 
+                   class="btn btn-primary"
+                   download="SmartFileOrganizer_Setup_v1.0.0.exe"
+                   id="heroDownloadBtn">
+                    ⬇️ Download for Windows
+                </a>
+                <a href="https://github.com/Bittukrazad/smart-file-organizer" class="btn btn-secondary" target="_blank">
+                    View on GitHub
+                </a>
+            </div>
+            <div class="version-badge">
+                Version 1.0.0 • Free Download • Windows 10+
+            </div>
+        </div>
+    </section>
 
-  <div class="buttons">
-    <a class="btn btn-primary" href="https://github.com/Bittukrazad/smart-file-organizer/releases/latest">⬇ Download for Windows</a>
-    <a class="btn btn-outline" href="https://github.com/Bittukrazad/smart-file-organizer">⭐ View on GitHub</a>
-  </div>
-</header>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <p class="section-subtitle">Everything you need to keep your files organized</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Classification</h3>
+                    <p>Automatically categorizes files by type, content, and metadata using intelligent algorithms.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Dual Operation Modes</h3>
+                    <p>Choose between batch processing for one-time cleanup or continuous monitoring for ongoing organization.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Visual Analytics</h3>
+                    <p>Beautiful charts and graphs showing file distribution, storage usage, and organization statistics.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">↩️</div>
+                    <h3>History & Undo</h3>
+                    <p>Complete operation history with one-click undo. Never worry about mistakes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Custom Rules Engine</h3>
+                    <p>Create your own organization rules based on file name, size, age, and content patterns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Duplicate Detection</h3>
+                    <p>Automatically finds and manages duplicate files to save disk space.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Desktop Notifications</h3>
+                    <p>Stay informed with real-time notifications about file organization activities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>System Tray Integration</h3>
+                    <p>Runs quietly in the background. Access controls from the system tray.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Auto-Update System</h3>
+                    <p>Automatic update notifications keep you on the latest version with new features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2 style="text-align:center; margin-bottom:40px;">✨ Features</h2>
-  <div class="features">
-    <div class="card">
-      <h3>🗂 Automatic Organization</h3>
-      <p>Organize files instantly by type, date, or custom rules.</p>
-    </div>
-    <div class="card">
-      <h3>🔄 Continuous Monitoring</h3>
-      <p>Keep folders clean with real-time background monitoring.</p>
-    </div>
-    <div class="card">
-      <h3>📊 Visual Analytics</h3>
-      <p>Understand your files using interactive charts and insights.</p>
-    </div>
-    <div class="card">
-      <h3>🧠 Smart Rules</h3>
-      <p>Create custom automation rules tailored to your workflow.</p>
-    </div>
-    <div class="card">
-      <h3>🔍 Duplicate Detection</h3>
-      <p>Find and manage duplicate files with ease.</p>
-    </div>
-    <div class="card">
-      <h3>🔔 System Tray & Notifications</h3>
-      <p>Stay informed without interrupting your work.</p>
-    </div>
-  </div>
-</section>
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2 class="section-title">Experience the Interface</h2>
+            <p class="section-subtitle">Clean, powerful, and designed for efficiency</p>
+            
+            <div class="features-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-title">Dashboard</div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-icon">📊</div>
+                            <h4>Real-Time Dashboard</h4>
+                            <p>Monitor file organization in real-time with intuitive controls</p>
+                        </div>
+                    </div>
+                    <div class="showcase-details">
+                        <h3>Powerful Dashboard</h3>
+                        <ul>
+                            <li>✓ Live activity monitoring</li>
+                            <li>✓ Quick access controls</li>
+                            <li>✓ Batch & continuous modes</li>
+                            <li>✓ Real-time statistics</li>
+                        </ul>
+                    </div>
+                </div>
 
-<section>
-  <div class="download-box">
-    <h2>🚀 Get Started</h2>
-    <p style="margin:15px 0; color:var(--muted);">Available for Windows 10+ (64-bit)</p>
+                <div class="showcase-item reverse">
+                    <div class="showcase-details">
+                        <h3>Visual Analytics</h3>
+                        <ul>
+                            <li>✓ Beautiful charts & graphs</li>
+                            <li>✓ Storage insights</li>
+                            <li>✓ Category breakdown</li>
+                            <li>✓ Time-based reports</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-title">Analytics</div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-icon">📈</div>
+                            <h4>Visual Analytics</h4>
+                            <p>Track your file organization with detailed analytics and insights</p>
+                        </div>
+                    </div>
+                </div>
 
-    <a class="btn btn-primary" href="https://github.com/Bittukrazad/smart-file-organizer/releases/latest">
-      Download Installer (.exe)
-    </a>
-  </div>
-</section>
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-title">Settings</div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-icon">⚙️</div>
+                            <h4>Flexible Configuration</h4>
+                            <p>Customize every aspect to match your workflow perfectly</p>
+                        </div>
+                    </div>
+                    <div class="showcase-details">
+                        <h3>Advanced Settings</h3>
+                        <ul>
+                            <li>✓ Custom organization rules</li>
+                            <li>✓ File type filters</li>
+                            <li>✓ Performance tuning</li>
+                            <li>✓ Notification preferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  © 2025 Bittu Kumar Azad · <a href="https://github.com/Bittukrazad/smart-file-organizer">GitHub Repository</a>
-</footer>
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <h2 class="section-title">Download Now</h2>
+            <p class="section-subtitle">Free for Windows • Professional installer</p>
+            
+            <div class="download-card">
+                <h3 style="margin-bottom: 1rem;">Smart File Organizer Pro v1.0.0</h3>
+                
+                <div class="file-info">
+                    <div class="info-item">
+                        <div class="info-label">File Size</div>
+                        <div class="info-value">~50 MB</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Version</div>
+                        <div class="info-value">1.0.0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Platform</div>
+                        <div class="info-value">Windows</div>
+                    </div>
+                </div>
+                
+                <a href="https://github.com/Bittukrazad/smart-file-organizer/releases/download/v1.0.0/SmartFileOrganizer_Setup_v1.0.0.exe" 
+                   class="btn btn-primary" 
+                   id="downloadBtn"
+                   download="SmartFileOrganizer_Setup_v1.0.0.exe"
+                   style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                    ⬇️ Download Installer
+                </a>
+                
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                    By downloading, you agree to our terms of service
+                </p>
+                
+                <div class="system-requirements">
+                    <h4>System Requirements</h4>
+                    <ul>
+                        <li>Windows 10 or later (64-bit)</li>
+                        <li>100 MB free disk space</li>
+                        <li>4 GB RAM (recommended)</li>
+                        <li>.NET Framework (usually pre-installed)</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="margin-bottom: 1rem;">Alternative Downloads:</p>
+                    <a href="https://github.com/Bittukrazad/smart-file-organizer/releases/latest" 
+                       class="btn btn-secondary" 
+                       target="_blank">
+                        View All Releases on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#screenshots">Screenshots</a></li>
+                    <li><a href="https://github.com/Bittukrazad/smart-file-organizer/releases">Changelog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="https://github.com/Bittukrazad/smart-file-organizer/issues">Report Issue</a></li>
+                    <li><a href="https://github.com/Bittukrazad/smart-file-organizer/discussions">Community</a></li>
+                    <li><a href="https://github.com/Bittukrazad/smart-file-organizer#readme">Documentation</a></li>
+                    <li><a href="bittukrazad652@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Developer</h3>
+                <ul>
+                    <li><a href="https://github.com/Bittukrazad/smart-file-organizer">GitHub Repository</a></li>
+                    <li><a href="https://github.com/Bittukrazad/smart-file-organizer/blob/main/LICENSE">License</a></li>
+                    <li><a href="https://github.com/Bittukrazad">GitHub Profile</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+    
+                    <li><a href="https://linkedin.com/in/bittu-kumar-azad-b409b8263/">LinkedIn</a></li>
+                    <li><a href="bittukrazad652@gmail.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Smart File Organizer Pro. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Made with ❤️ by Bittu Kumar Azad</p>
+        </div>
+    </footer>
+
+    <script>
+        // Download button functionality (main download section)
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            showDownloadFeedback(this);
+        });
+
+        // Hero download button functionality
+        const heroBtn = document.getElementById('heroDownloadBtn');
+        if (heroBtn) {
+            heroBtn.addEventListener('click', function(e) {
+                showDownloadFeedback(this);
+            });
+        }
+
+        // Show download feedback
+        function showDownloadFeedback(btn) {
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Starting Download...';
+            btn.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                btn.innerHTML = '✅ Download Started!';
+                
+                // Show additional info
+                const info = document.createElement('div');
+                info.style.cssText = 'position: fixed; top: 80px; right: 20px; background: #4CAF50; color: white; padding: 1rem 2rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 9999; animation: fadeInUp 0.3s ease;';
+                info.innerHTML = '✅ Download started!<br><small>Check your Downloads folder</small>';
+                document.body.appendChild(info);
+                
+                setTimeout(() => {
+                    info.style.animation = 'fadeOut 0.3s ease';
+                    setTimeout(() => info.remove(), 300);
+                }, 3000);
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.pointerEvents = 'auto';
+                }, 2000);
+            }, 500);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
