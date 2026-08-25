@@ -27,7 +27,7 @@ Intelligent automated file management system
 
 ## 📥 Download
 
-**[Download Latest Release (v1.0.1)](https://github.com/Bittukrazad/smart-file-organizer/releases/latest)**
+**[Download Latest Release (v1.0.2)](https://github.com/Bittukrazad/smart-file-organizer/releases/latest)**
 
 > **Note:** Windows may show a "Windows protected your PC" / "Unknown Publisher" warning during install, since the app isn't yet digitally signed with a paid code-signing certificate. Click **More info → Run anyway** to proceed. This is expected for unsigned open-source apps and does not indicate a problem with the app itself.
 
@@ -90,7 +90,15 @@ Intelligent automated file management system
 
 ## 🆕 What's New
 
-### v1.0.1 (Latest)
+### v1.0.2 (Latest)
+
+🛠️ **Bug Fix Release**
+
+- Fixed `sqlite3.OperationalError: unable to open database file` that occurred on launch for some users
+- App database now stores in a per-user location (`%LOCALAPPDATA%`) instead of the install folder
+- Same fix pattern applied consistently across logs, config, and database storage
+
+### v1.0.1
 
 🛠️ **Bug Fix Release**
 

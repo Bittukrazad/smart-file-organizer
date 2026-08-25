@@ -940,7 +940,7 @@ class MainWindow(QMainWindow):
             from app.version import APP_VERSION, APP_NAME
             version_label = QLabel(f"<b>{APP_NAME}</b><br>Version {APP_VERSION}")
         except ImportError:
-            version_label = QLabel("<b>Smart File Organizer Pro</b><br>Version 1.0.1")
+            version_label = QLabel("<b>Smart File Organizer Pro</b><br>Version 1.0.2")
 
         version_label.setStyleSheet("color: #555; padding: 5px;")
         updates_layout.addWidget(version_label)

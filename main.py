@@ -3,7 +3,7 @@
 
 """
 Smart File Organizer Pro - Modern Automated File Management System
-Version: 2.1.0
+Version: 1.0.2
 """
 import sys
 import os

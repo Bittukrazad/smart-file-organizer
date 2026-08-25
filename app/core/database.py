@@ -1,11 +1,13 @@
 # ============================================
 # FILE: app/core/database.py
-# Complete SQLite Database System
+# Complete SQLite Database System (FIXED - uses %LOCALAPPDATA%)
 # ============================================
 
 """Database management for Smart File Organizer Pro"""
 import sqlite3
 import json
+import os
+import sys
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, List, Dict, Tuple
@@ -15,11 +17,56 @@ from contextlib import contextmanager
 logger = logging.getLogger("FileOrganizer")
 
 
+def get_app_data_dir() -> Path:
+    """
+    Return a writable per-user directory for application data (database,
+    config, etc.), independent of where the app is installed.
+
+    On Windows this resolves to:
+        C:\\Users\\<user>\\AppData\\Local\\FileOrgPro\\SmartFileOrganizerPro
+    which is always writable by the current user, even when the app itself
+    is installed under a location that may not be (e.g. Program Files, or
+    a removable/network drive).
+    """
+    app_name = "SmartFileOrganizerPro"
+    org_name = "FileOrgPro"
+
+    if sys.platform == "win32":
+        base = os.getenv("LOCALAPPDATA")
+        if not base:
+            base = str(Path.home() / "AppData" / "Local")
+        data_dir = Path(base) / org_name / app_name
+    elif sys.platform == "darwin":
+        data_dir = Path.home() / "Library" / "Application Support" / app_name
+    else:
+        base = os.getenv("XDG_DATA_HOME", str(Path.home() / ".local" / "share"))
+        data_dir = Path(base) / app_name
+
+    return data_dir
+
+
+def get_default_db_path() -> Path:
+    """Default SQLite database file path (per-user, always writable)."""
+    data_dir = get_app_data_dir()
+    data_dir.mkdir(parents=True, exist_ok=True)
+    return data_dir / "file_organizer.db"
+
+
 class Database:
     """SQLite database manager for persistent storage"""
-    
-    def __init__(self, db_path: str = "file_organizer.db"):
-        self.db_path = Path(db_path)
+
+    def __init__(self, db_path: Optional[str] = None):
+        # If no path is given, use the safe per-user default instead of a
+        # relative path (which would resolve next to the exe and can fail
+        # with "unable to open database file" if that folder isn't writable
+        # or accessible, e.g. installed on a read-only/removable drive).
+        if db_path is None:
+            self.db_path = get_default_db_path()
+        else:
+            self.db_path = Path(db_path)
+            # Make sure the parent folder exists for any custom path too
+            self.db_path.parent.mkdir(parents=True, exist_ok=True)
+
         self.connection = None
         self.initialize_database()
     
@@ -133,7 +180,7 @@ class Database:
                     ON statistics(date)
                 """)
                 
-                logger.info("Database initialized successfully")
+                logger.info(f"Database initialized successfully at: {self.db_path}")
                 
         except Exception as e:
             logger.error(f"Failed to initialize database: {e}", exc_info=True)
@@ -618,5 +665,4 @@ class Database:
     def __exit__(self, exc_type, exc_val, exc_tb):
         """Context manager exit - cleanup"""
         self.close()
-        return False        
-
+        return False
