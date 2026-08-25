@@ -23,7 +23,16 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}/issues
 AppUpdatesURL={#MyAppURL}/releases
 
-DefaultDirName={autopf}\{#MyAppName}
+; ---- CHANGED: per-user install location ----
+; Installs to C:\Users\<user>\AppData\Local\Programs\Smart File Organizer Pro
+; This folder is always writable by the current user, so no admin/UAC
+; prompt is required and the app (and anything it writes next to itself,
+; like logs/config/cache) never hits a PermissionError again.
+DefaultDirName={localappdata}\Programs\{#MyAppName}
+PrivilegesRequired=lowest
+PrivilegesRequiredOverridesAllowed=dialog
+; ---------------------------------------------
+
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 

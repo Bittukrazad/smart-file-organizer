@@ -1,7 +1,5 @@
 # 🗂️ Smart File Organizer Pro
 
-
-
 Intelligent automated file management system
 
 <p align="center">
@@ -29,8 +27,9 @@ Intelligent automated file management system
 
 ## 📥 Download
 
-**[Download Latest Release (v1.0.0)](https://github.com/Bittukrazad/smart-file-organizer/releases/latest)**
+**[Download Latest Release (v1.0.1)](https://github.com/Bittukrazad/smart-file-organizer/releases/latest)**
 
+> **Note:** Windows may show a "Windows protected your PC" / "Unknown Publisher" warning during install, since the app isn't yet digitally signed with a paid code-signing certificate. Click **More info → Run anyway** to proceed. This is expected for unsigned open-source apps and does not indicate a problem with the app itself.
 
 ---
 
@@ -89,9 +88,18 @@ Intelligent automated file management system
 
 ---
 
+## 🆕 What's New
 
+### v1.0.1 (Latest)
 
-## 🆕 What’s New in v1.0.0
+🛠️ **Bug Fix Release**
+
+- Fixed `PermissionError: [WinError 5] Access is denied: 'logs'` that occurred on install for non-admin users
+- App logs now write to a per-user location (`%LOCALAPPDATA%`) instead of the install folder
+- Installer now installs per-user by default — no admin rights or UAC prompt required
+- Improved reliability across different Windows user account setups
+
+### v1.0.0
 
 🎉 **First Official Release**
 
@@ -103,7 +111,6 @@ Intelligent automated file management system
 - System tray integration
 - Auto-update ready architecture
 - Professional Windows installer
-
 
 
 
@@ -156,5 +163,3 @@ Project: https://github.com/Bittukrazad/smart-file-organizer
 Copyright © 2025 Bittu Kumar Azad
 All rights reserved.
 This project is licensed under the MIT License.
-
-

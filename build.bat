@@ -13,16 +13,17 @@ REM ---- Activate virtual environment ----
 if exist venv\Scripts\activate.bat (
     call venv\Scripts\activate
 ) else (
-    echo ❌ Virtual environment not found!
+    echo Virtual environment not found!
     echo Please create venv before building.
     pause
     exit /b 1
 )
 
-REM ---- Set version (single source of truth) ----
-set APP_VERSION=1.0.0
+REM ---- Version is read automatically from app\version.py ----
+REM     (release.py imports APP_VERSION and sets it for Inno Setup)
+REM     Do NOT hardcode it here - update app\version.py instead.
 
-echo Building version %APP_VERSION%
+echo Starting build...
 echo.
 
 REM ---- Run automated release ----
@@ -42,10 +43,11 @@ echo ================================================
 echo  BUILD COMPLETED SUCCESSFULLY!
 echo ================================================
 echo.
-
-echo Output files:
-echo   release\SmartFileOrganizer_Setup_v%APP_VERSION%.exe
-echo   release\SmartFileOrganizer_Portable_v%APP_VERSION%.zip
+echo Output files are in the release\ folder.
+echo   - SmartFileOrganizer_Setup_v^<version^>.exe
+echo   - SmartFileOrganizer_Portable_v^<version^>.zip
+echo.
+echo (version number comes from app\version.py)
 echo.
 
 pause
