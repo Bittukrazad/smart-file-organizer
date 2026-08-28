@@ -554,11 +554,11 @@
             <h1>🗂️ Smart File Organizer Pro</h1>
             <p class="subtitle">Intelligent automated file management system for Windows</p>
             <div class="cta-buttons">
-                <a href="https://github.com/Bittukrazad/smart-file-organizer/releases/download/v1.0.2/SmartFileOrganizer_Setup_v1.0.2.exe" 
+                <a href="https://get.microsoft.com/installer/download/xpfm5zfth861vg?referrer=appbadge" 
+                   target="_blank"
                    class="btn btn-primary"
-                   download="SmartFileOrganizer_Setup_v1.0.2.exe"
                    id="heroDownloadBtn">
-                    ⬇️ Download for Windows
+                    <img src="https://get.microsoft.com/images/en-us%20light.svg" width="180" style="display:block;">
                 </a>
                 <a href="https://github.com/Bittukrazad/smart-file-organizer" class="btn btn-secondary" target="_blank">
                     View on GitHub
@@ -743,16 +743,15 @@
                     </div>
                 </div>
                 
-                <a href="https://github.com/Bittukrazad/smart-file-organizer/releases/download/v1.0.2/SmartFileOrganizer_Setup_v1.0.2.exe" 
-                   class="btn btn-primary" 
+                <a href="https://get.microsoft.com/installer/download/xpfm5zfth861vg?referrer=appbadge" 
+                   target="_blank"
                    id="downloadBtn"
-                   download="SmartFileOrganizer_Setup_v1.0.2.exe"
-                   style="font-size: 1.2rem; padding: 1.2rem 3rem;">
-                    ⬇️ Download Installer
+                   style="display:inline-block;">
+                    <img src="https://get.microsoft.com/images/en-us%20light.svg" width="220" style="display:block;">
                 </a>
                 
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
-                    By downloading, you agree to our terms of service
+                    Now available on the Microsoft Store — automatic updates included
                 </p>
                 
                 <div class="system-requirements">
@@ -827,46 +826,7 @@
     </footer>
 
     <script>
-        // Download button functionality (main download section)
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            showDownloadFeedback(this);
-        });
-
-        // Hero download button functionality
-        const heroBtn = document.getElementById('heroDownloadBtn');
-        if (heroBtn) {
-            heroBtn.addEventListener('click', function(e) {
-                showDownloadFeedback(this);
-            });
-        }
-
-        // Show download feedback
-        function showDownloadFeedback(btn) {
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ Starting Download...';
-            btn.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                btn.innerHTML = '✅ Download Started!';
-                
-                // Show additional info
-                const info = document.createElement('div');
-                info.style.cssText = 'position: fixed; top: 80px; right: 20px; background: #4CAF50; color: white; padding: 1rem 2rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 9999; animation: fadeInUp 0.3s ease;';
-                info.innerHTML = '✅ Download started!<br><small>Check your Downloads folder</small>';
-                document.body.appendChild(info);
-                
-                setTimeout(() => {
-                    info.style.animation = 'fadeOut 0.3s ease';
-                    setTimeout(() => info.remove(), 300);
-                }, 3000);
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.pointerEvents = 'auto';
-                }, 2000);
-            }, 500);
-        }
-
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
